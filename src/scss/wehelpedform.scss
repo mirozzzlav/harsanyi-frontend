@@ -1,0 +1,184 @@
+.we-helped-outer {
+    position: relative;
+    .loader-outer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+    }
+} 
+.we-helped {
+    .custom-file {
+        height: auto;
+    }
+    .custom-file-input {
+        position: absolute;
+    }
+    .custom-file-label {
+        padding-left: 13.4rem;
+        color: $dark-brown;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: $font-weight-medium;
+        cursor: pointer !important;
+        height:auto;
+        color:$light-gray;
+        border-top: 1px solid;
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-bottom: 1px solid;
+        border-color: $dark-brown;
+        position: static;
+        display: block;
+        word-wrap: break-word;
+    }
+    .custom-file-label::after {
+        color: #fff;
+        padding-left: 2rem;
+        border-radius: 0;
+        background-image: url(../assets/paperclip.svg);
+        background-color: $dark-brown;
+        background-repeat: no-repeat;
+        background-position: 0.5rem center;
+        right: unset !important;
+        left: 0 !important;
+        font-weight: $font-weight-medium;
+        cursor: pointer !important;
+        height: calc(1.5em + 0.75rem + 2px);
+    }
+    
+    > .row {
+        margin-left: 0;
+        margin-right: 0;
+        > .col {
+            position: relative;
+        }
+        > :first-child.col {
+            padding-left: 0;
+        }
+        > :nth-child(2).col {
+            padding-right: 0;
+        }
+    }    
+    h3{
+        color: $dark-brown;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: $font-weight-medium;   
+        padding: 0;
+        margin: 1rem 0; 
+    }
+
+    input[type="file"] {
+        cursor: pointer;
+    }
+    input, textarea {
+        border-radius: 0;
+        border: 1px solid $dark-brown;
+        color:$dark-gray;
+        margin-bottom: 0.8rem;
+        font-weight: $font-weight-medium;
+    }
+
+    textarea {
+        resize: none;
+        min-height: 10rem;
+        border-bottom-width:1px;
+    }
+    input:focus, textarea:focus {
+        color:$dark-gray;
+    }
+    input:focus, textarea:focus,.custom-file-input:focus ~ .custom-file-label {
+        border-color: $dark-brown;    
+        outline:none !important;
+        outline-width: 0 !important;
+        box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;    
+    }
+    
+    button {
+        border-radius: 0;
+        color:#fff;
+        background-color: $dark-brown;
+        border:none;
+        padding: 0.4rem 4rem !important;
+        text-transform: uppercase;
+        font-weight: $font-weight-medium;
+    }
+    button:focus {
+        background-color: $dark-brown;
+        outline: none;
+        box-shadow: none;
+    }
+    button:hover {
+        background-color: $super-dark-brown;;
+    }
+    
+    .textarea-md-mode-hl {
+        margin-top:2rem;
+    }
+
+    
+    .is-invalid.form-control, .is-invalid.form-control:focus {
+        border-color: $color-danger;
+        background-image: $bg-icon-danger;
+    }
+    .custom-file-input.is-invalid ~ .custom-file-label,
+    .custom-file-input.is-invalid:focus ~ .custom-file-label {
+        border-color:$color-danger;
+        background-image:$bg-icon-danger;
+        background-repeat: no-repeat;
+        background-position: top calc(0.375em + 0.1875rem) right calc(0.75em + 0.1875rem);
+        padding-right: calc(1.5em + 0.75rem);
+        
+    }
+    
+    .invalid-feedback, .custom-invalid-feedback {
+        position: relative;
+        top: -0.5rem;
+        width: 100%;
+        margin-top: 0.25rem;
+        color: $color-danger;
+        padding-left: 0.1rem;
+        font-weight: $font-weight-thick;
+        font-size: 0.8rem;
+    }
+
+    .is-valid.form-control, .is-valid.form-control:focus {
+        border-color: $color-success;  
+        background-image: $bg-icon-success;
+    }
+    .custom-file-input.is-valid ~ .custom-file-label,
+    .custom-file-input.is-valid:focus ~ .custom-file-label {
+        border-color: $color-success;
+        background-image: $bg-icon-success;
+        background-repeat: no-repeat;
+        background-position: top calc(0.375em + 0.1875rem) right calc(0.75em + 0.1875rem);
+        padding-right: calc(1.5em + 0.75rem);
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .we-helped {
+        textarea {
+            height: 100% !important;
+            margin-bottom: 0rem;
+            border-bottom-width:0;
+        }
+        .textarea-md-mode-hl {
+            margin-top:10rem;
+        }
+        .textarea-wrapper {
+            position: relative;
+        }
+        #feedback-requestText {
+            top: 100%;
+            position: absolute;
+            left: 1rem;
+            margin-top: 2.5rem;
+        }
+    }
+}
+

@@ -1,0 +1,47 @@
+#app {
+    flex: 1;
+}
+
+#main-navbar.navbar {
+    .navbar-nav .nav-link {
+        color: $light-gray;
+        text-transform: uppercase;
+        border: none;
+        transition: all .2s ease-in-out;
+    }
+    .navbar-nav .nav-link:hover {
+        color:#000;
+    }
+    .navbar-nav .nav-link.router-link-active, .nav-item.customactive > .nav-link{
+        border-bottom: 2px solid $dark-brown;
+        color:#000;
+    }
+    
+    
+}
+#main-navbar.navbar .navbar-brand {
+    display: block;
+    text-indent: -9999px;
+    width: 203px;
+    height: 70px;
+    background: url(assets/logo.svg);
+    background-size: 203px 70px;
+}
+#main-footer {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    background-color: $gray;
+    text-align: center;
+    color: #C2C2C2;
+    height: 300px;
+    font-size: 0.8rem;
+    font-weight: $font-weight-medium;
+    background-image: url(assets/chain_pattern.png);
+    background-position-y: bottom;
+    background-repeat: repeat-x;
+}
+#main-footer-content {
+    margin: 2.7rem auto 0 auto;
+    padding: 0;
+}

@@ -1,0 +1,36 @@
+{
+    "menuItems": {
+        "home": {"path" : "/", "name": "home"},
+        "about": {"path": "/o-nadacii", "name": "about", "skname": "O Nadácii"},
+        "stefan": {"path": "/stefan-harsanyi", "name": "stefan", "skname": "Štefan Harsányi" },
+        "support": {
+            "path": "/podpora", 
+            "name": "support",  
+            "skname": "Podpora",
+            "queryString": "/akcia/:action"
+        },
+        "weHelped": {"path": "/pomohli-sme", "name": "weHelped", "skname": "Pomohli sme"},
+        "contact": {"path": "/kontakt", "name": "contact", "skname": "Kontakt"}
+    },
+    "menuItemsArgs": {
+        "support": [
+            {"slug": "ziskajte-podporu", "skname" : "Získajte podporu"},
+            {"slug": "podporte-nas", "skname": "Podporte nás"}
+        ]
+        
+    },
+    "ajaxDelayTime": 2000,
+    "maxAttachmentSize": 10485760,
+    "supportedAttachments": [
+        "application/pdf",
+        "image/gif",
+        "image/jpeg",
+        "image/jpg",
+        "application/msword",
+        "image/pjpeg",
+        "image/x-png",
+        "image/png"
+    ],
+    "defaultGalleryCols": 4,
+    "itemsPerPageGallery": 8
+}

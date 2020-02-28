@@ -1,8 +1,52 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+ 
+//Pages
+import Home from './pages/Home' 
+import ONadacii from './pages/ONadacii'
+import Stefan from './pages/Stefan'
+import Podpora from './pages/Podpora'
+import PomohliSme from './pages/PomohliSme'
+import Kontakt from './pages/Kontakt'
+
+import configHelper from './modules/configHelper';
+
+import './scss/global.scss';
+
+
+Vue.use(VueAxios, axios)
+Vue.use(VueRouter)
+Vue.prototype.configHelper = configHelper;
+Vue.config.productionTip = false
+
+const menuItems = configHelper.get('menuItems');
+
+
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.VUE_APP_BASE_ROUTE || "/",
+  routes: [
+    { path: menuItems.home.path, component: Home, name: menuItems.home.name},
+    { path: menuItems.about.path, component: ONadacii, name: menuItems.about.name},
+    { path: menuItems.stefan.path, component: Stefan, name: menuItems.stefan.name},
+    { path: menuItems.weHelped.path, component: PomohliSme, name: menuItems.weHelped.name},
+    { path: menuItems.contact.path, component: Kontakt, name: menuItems.contact.name},
+    { path: menuItems.support.path + menuItems.support.queryString, component: Podpora},
+  ],
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
+});
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  router: router,
+  template: '<App/>',
+  components: { App },
+});

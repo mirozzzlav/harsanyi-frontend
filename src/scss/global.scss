@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,500&display=swap&subset=latin-ext');
+
+@font-face {
+    font-family: 'droid_serifregular';
+    src: url('../assets/fonts/DroidSerif-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 16px;
+    font-size: 1rem;
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0 !important;
+    padding: 0;
+    padding-bottom: 300px; 
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif !important;
+}
+
+.container-type1 {
+    width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+}
+.container-type2 {
+    width: 96vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+}
+.container-type3 {
+    width:44vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+}
+.vertical-space {
+    padding-top: 2vw !important;
+    padding-bottom: 2vw !important;
+}
+.main-hl {
+    color: $medium-brown;
+    font-weight: $font-weight-thick;
+    text-transform: uppercase;
+    font-size: 2.8rem;
+}
+
+a {
+    text-decoration: none;
+    border:none;
+}
+
+.text-content {
+    padding-top: 4vw !important;
+    padding-bottom: 4vw !important;
+}
+
+.text-content {
+    * {
+        font-family: "droid_serifregular", Georgia,Times, Times New Roman, serif; 
+        font-weight: $font-weight-medium;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color:$dark-brown;
+        text-align: center;
+        line-height: 1.4;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: $font-weight-medium;
+    }
+    a {
+        color: $super-dark-brown;
+        font-weight: $font-weight-thick;
+        text-decoration: underline;
+    }
+    
+    img {
+        display: block;
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 44vw;
+    }
+}
+
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top:0;
+    left:0;
+    color:$dark-brown;
+    z-index: 9999;
+    background-color: rgba(255,255,255,0.85);
+}
+.spinner-container > * {
+    position: relative;
+    top: 50%;
+    margin-top: -1rem;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $light-gray !important;
+    opacity: 1; /* Firefox */
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $light-gray !important;
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: $light-gray !important;
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
+  }
+
+  .container-type1.text-content{ 
+    img {
+        width: 100%;
+        max-width: 600px;
+    }
+
+  }
+
