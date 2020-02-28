@@ -86,7 +86,7 @@ export default {
         text-align: center;
         padding: 0 1rem;
         font-weight: $font-weight-light;
-        max-height: 7.6rem;
+        max-height: 7rem;
         overflow: hidden;
     }
 }

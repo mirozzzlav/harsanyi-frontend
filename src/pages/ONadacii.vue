@@ -1,7 +1,7 @@
 <template>
   <div id="o-nadacii">
     <div class="onadacii-outer">
-      <div class="container-type1 text-content">
+      <div class="container-type3 text-content">
         <h1>Hedaline 1</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <a href="#">tempor incididunt</a> ut labore et dolore magna aliqua. Semper feugiat nibh sed pulvinar proin. Urna et pharetra pharetra massa. Lacus viverra vitae congue eu. Sed turpis tincidunt id aliquet risus feugiat in ante. Aenean sed adipiscing diam donec adipiscing. A erat nam at lectus urna duis convallis. Pellentesque diam volutpat commodo sed egestas. Mattis nunc sed blandit libero volutpat sed. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Ornare suspendisse sed nisi lacus. Sit amet cursus sit amet dictum sit. Semper eget duis at tellus at. Est ante in nibh mauris.

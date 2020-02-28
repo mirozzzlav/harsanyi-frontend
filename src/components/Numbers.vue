@@ -39,14 +39,24 @@ export default {
 }
 .numbers .col {
     text-align: center;
-    padding: 3.5rem 0;
+    padding: 1.5rem 0;
 }
 .numbers .numbers-value {
-    font-size: 3.5rem;
+    font-size: 2.8em;
     font-weight: $font-weight-medium;
 }
 .numbers .numbers-label {
     font-size: 1.2rem;
     font-weight: $font-weight-light;
 }
+
+@include media-breakpoint-up(lg) {
+    .numbers .numbers-value {
+        font-size: 3.5rem;
+    }
+    .numbers .col {
+        padding: 3.5rem 0;
+    }
+}
+
 </style>

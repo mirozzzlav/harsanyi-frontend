@@ -78,22 +78,21 @@ export default {
   top:0;
   > img {
     display: block;
-    width: 100%;
-    left:0;
-    bottom:0;
-    position: absolute;
+    width: auto;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
   }
   .stefan-hl {
-    position: absolute;
-    bottom: 0;
+    position: relative;
     font-size: 1.5rem;
     font-weight: 300;
     text-align: center;
-    left: 4rem;
     width: 16rem;
     padding: 0.5rem 0.5rem;
-    margin: 0;
-    background: rgba(255,255,255,.9);
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0 auto;
+    top: -2.7rem;
   }
 }
 .harsanyi .main-block {
@@ -101,10 +100,12 @@ export default {
     margin: 2rem;
     > h1 {
       margin-bottom: 1.5rem;
+      font-size: 1.8rem;
       font-weight: $font-weight-medium;
     }
     > p {
       color: #c2c2c2;
+      font-weight: $font-weight-medium;
     }
 }
 
@@ -128,24 +129,26 @@ export default {
 /*for bigger screens */
 @include media-breakpoint-up(lg) {
   .img-centered-block {
-      width: 50%;
+      width: 100%;
       height: 100%;
       position: absolute;
-      left:50%;
+      left:0;
       top:0;
       > img {
         display: block;
-        width: 100%;
-        left:3%;
+        height: 90%;
+        width: auto;
+        right:-10%;
         bottom:0;
         position: absolute;
+        margin: 0;
       }
       .stefan-hl {
         position: absolute;
         background: none;
         top:50%;
-        width: (8 * 2.5vw);
-        left: (-8 * 2.5vw + 2vw);
+        width: 20vw;
+        left: -1rem;
         font-size:2.5vw;
         font-weight: $font-weight-medium;
         text-align: left;
@@ -154,6 +157,9 @@ export default {
   .harsanyi .main-block {
     width: 50%;
     overflow: hidden;
+    > h1 {
+      font-size: 2.2rem;
+    }
   }
   .harsanyi .img-big-right-block {
     display: block;
