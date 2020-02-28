@@ -6,7 +6,7 @@
             </div>
             <div v-if="!ajaxLoading">
               <div class="row" v-for="(row, indx) in rows" v-bind:key="indx">
-                  <div class="item-wrapper col-12" v-bind:class="'col-md-' + (12 / colsPerRow)" 
+                  <div class="item-wrapper col-12" v-bind:class="'col-md-' + (12 / colsPerRow)"
                       v-for="item in row" v-bind:key="item.id"
                   >
                       <img v-bind:src="item.imgs[0].src" v-bind:alt="item.post_tile"/>
@@ -14,14 +14,14 @@
                       <div class="item-desc">{{item.post_content}}</div>
                   </div>
               </div>
-            
-              <b-pagination v-model="currentPage" :total-rows="itemsCount"  
+
+              <b-pagination v-model="currentPage" :total-rows="itemsCount"
                     :per-page="itemsPerPage" first-number align="center" v-if="itemsCount > itemsPerPage">
               </b-pagination>
             </div>
         </div>
-    </div>   
-    
+    </div>
+
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
     name: "Gallery",
     data: function() {
         return {
-          items: [], 
+          items: [],
           itemsCount: 0,
           currentPage: 1
         }
@@ -45,7 +45,7 @@ export default {
                 if (indx % this.colsPerRow === 0) {
                   rowNr++;
                   rows[rowNr] = [];
-                } 
+                }
 
                 rows[rowNr].push(item);
             });
@@ -61,7 +61,7 @@ export default {
     },
     methods: {
       getGallery: function(pageNr) {
-        
+
         let url = `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme/${pageNr}/${this.itemsPerPage}`;
         this.getAjaxDelayed(
             url,
@@ -69,14 +69,14 @@ export default {
             (response) => {
                 const {data} = response;
                 this.items = data.items;
-                this.itemsCount = data.items_count; 
+                this.itemsCount = data.items_count;
             }
         );
       }
     },
     watch: {
         $route: {
-            immediate: true, 
+            immediate: true,
             handler: function() {
               this.getGallery(1);
             }
@@ -105,19 +105,21 @@ export default {
     margin: 0 auto 0rem auto;
   }
   .item-title {
+        font-family: 'droid_serifregular', serif;
         font-size: 1.3rem;
         margin:0.8rem 0 0.4rem 0;
         padding: 0;
         text-align: center;
-        text-transform: uppercase;
         color:$dark-brown;
         font-weight: $font-weight-medium;
     }
     .item-desc {
+        font-family: 'droid_serifregular', serif;
         font-size: 1rem;
-        line-height: 1.2;
+        line-height: 1.4;
         text-align: center;
         padding: 0 1rem;
+        color:$dark-brown;
         font-weight: $font-weight-medium;
         max-height: 8.2rem;
         overflow-y: hidden;

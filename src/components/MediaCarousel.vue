@@ -1,8 +1,8 @@
 <template>
-    <div class="carousel-container"> 
+    <div class="carousel-container">
         <div class="container-type2 vertical-space">
             <h2>Pomohli sme</h2>
-            
+
             <div class="spinner-container" v-if="ajaxLoading">
                 <b-spinner label="Loading..."></b-spinner>
             </div>
@@ -12,7 +12,7 @@
                     <img v-bind:src = "item.first_img.src" v-bind:alt = "item.post_title"/>
                     <h4 class="img-title">{{item.post_title}}</h4>
                     <div class="img-desc">{{item.post_content}}</div>
-                </slide> 
+                </slide>
             </carousel>
         </div>
     </div>
@@ -43,7 +43,7 @@ export default {
   },
   watch: {
     $route: {
-        immediate: true, 
+        immediate: true,
         handler: function() {
             this.getAjaxDelayed(
                 `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme`,
@@ -52,11 +52,11 @@ export default {
                     const {data} = response;
                     this.items = data.items;
                 }
-            );   
+            );
         }
     },
   },
-  
+
 }
 </script>
 <style lang="scss">
@@ -70,24 +70,26 @@ export default {
         height: auto;
     }
     .img-title {
+        font-family: 'droid_serifregular', serif;
         font-size: 1.1rem;
         margin:0.8rem 0 0.4rem 0;
         padding: 0;
         text-align: center;
-        text-transform: uppercase;
         color:$dark-brown;
         font-weight: $font-weight-medium;
     }
     .img-desc {
-        font-size: 0.8rem;
-        line-height: 1.2;
+        font-family: 'droid_serifregular', serif;
+        color:$dark-brown;
+        font-size: 1rem;
+        line-height: 1.4;
         text-align: center;
         padding: 0 1rem;
         font-weight: $font-weight-light;
         max-height: 7.6rem;
         overflow: hidden;
     }
-}   
+}
 .VueCarousel :last-child.VueCarousel-slide {
     margin: 0;
 }
