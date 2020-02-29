@@ -7,7 +7,7 @@
                 <b-spinner label="Loading..."></b-spinner>
             </div>
 
-            <carousel v-bind="carousel" v-if="items">
+            <carousel v-bind="carousel" v-if="items" :perPageCustom="[[300,1],[500, 2], [768, 3], [1024, 4]]">
                 <slide v-for="item in items" v-bind:key="item.id">
                     <img v-bind:src = "item.first_img.src" v-bind:alt = "item.post_title"/>
                     <h4 class="img-title">{{item.post_title}}</h4>
@@ -31,8 +31,7 @@ export default {
   data: function() {
     return {
         carousel: {
-            perPage: 4,
-            scrollPerPage: true,
+
         },
         items: null,
     };
