@@ -4,7 +4,8 @@ export default {
       return {
         links: [
 
-        ]
+        ],
+        someLinkActive: false
       }
     },
     methods: {
@@ -73,7 +74,7 @@ export default {
         $route: {
             immediate: true, 
             handler: function() {
-                
+                this.someLinkActive = false;
                 if (!this.links || this.links.length === 0) {
                     this.initLinks();
                 }
@@ -83,6 +84,7 @@ export default {
                     linkData.active = false;
                     if (linkData.slug === this.currentAction) {
                         linkData.active = true;
+                        this.someLinkActive = true;
                     }
                 });
                 this.$forceUpdate();

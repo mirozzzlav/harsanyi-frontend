@@ -1,16 +1,17 @@
 <template>
-    <div class="big-buttons">
-        <div class="container-type1">
-            <div class="row big-btns-row">
-                <div class="col col-12 col-md-6" v-for="(link,indx) in links" v-bind:key="indx">
-                    <router-link class="big-btn" :to="link.link"
-                    v-bind:class="{'active': links[indx].active}">
-                    {{link.skname}}
-                    </router-link>
-                </div>
-            </div>
+    <div class="big-buttons" v-bind:class="{'some-link-active': someLinkActive}">
+
+        <div v-for="(link,indx) in links"  v-bind:key="indx" class="big-btn-outer">
+            <router-link class="big-btn" :to="link.link"
+            v-bind:class="{'active': links[indx].active}">
+            <b-icon icon="chevron-compact-right"></b-icon>
+            {{link.skname}}
+            <b-icon icon="chevron-compact-left"></b-icon>
+            </router-link>            
         </div>
+        
     </div>
+        
 </template>
 
 <script>
@@ -22,51 +23,70 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.big-buttons   {
+.big-buttons {
     background: $dark-brown;
     font-weight: $font-weight-medium;
-}
-.big-btns-row {
-     > * {
-         border-top: 1px solid #d8d8d8;
-     }
-     :first-child {
-         border:none;
-     }
-}
-
-.big-buttons .big-btn {
-    text-align: center;
-    background: $dark-brown;
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 3rem;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 1rem 0;
-    border: none;
-    font-weight: $font-weight-medium;
-    width: 100%;
     display: block;
-    cursor: pointer;
-}
-.big-buttons .row .col:last-child > .big-btn {
-    border: none;
-}
 
-.big-buttons .big-btn:focus {
-    outline: none;
-}
-.big-buttons .big-btn:hover, .big-buttons .big-btn.active {
-  text-decoration: underline;
-  color: #fff;
-}
-@include media-breakpoint-up(md) {
-    .big-btns-row > * {
-        border:none;
+    :last-child.big-btn-outer, :last-child.big-btn-outer > .big-btn{
+        border: none;
     }
-    .big-buttons .big-btn {
-        border-right: 1px solid #d8d8d8;
+    .big-btn-outer {
+        padding: 1rem 0;
+        border-bottom: 1px solid #d8d8d8;
+    }
+    .big-btn {
+        background: $dark-brown;
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        text-transform: uppercase;
+        position: relative;
+        left:-1rem;
+        
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        > * {
+            color: $light-brown;
+            display: none;
+        }
+    }
+    
+    &:hover, &.some-link-active {
+        .big-btn {
+            color:$light-brown;
+        }
+    }
+    .big-btn:focus {
+        outline: none;
+    }
+    .big-btn:hover, .big-btn.active {
+        color: #fff;
+        text-decoration: none;
+    }
+    .big-btn.active > * {
+        display: inline;
+    }
+
+} 
+
+@include media-breakpoint-up(md) {
+    .big-buttons {
+        display: flex;
+        flex-direction: row;
+
+        .big-btn-outer {
+            width: 50%;
+            border: none;
+        
+            .big-btn {
+                border-right: 1px solid #d8d8d8;
+            }
+        }
     }
 }
 </style>

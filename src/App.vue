@@ -46,11 +46,11 @@
 </template>
 <script>
 import Vue from 'vue'
-import { BootstrapVue } from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import SupportLinkHelper from './mixins/SupportLinkHelper'
 
 Vue.use(BootstrapVue)
-//Vue.use(BootstrapVueIcons)
+Vue.use(BootstrapVueIcons)
 
 export default {
   name: 'App',
