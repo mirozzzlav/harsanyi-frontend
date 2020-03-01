@@ -70,7 +70,7 @@ export default {
     }
     .img-title {
         font-family: 'droid_serifregular', serif;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         margin:0.8rem 0 0.4rem 0;
         padding: 0;
         text-align: center;

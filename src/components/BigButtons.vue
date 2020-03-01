@@ -44,8 +44,6 @@ export default {
         font-size: 1.5rem;
         line-height: 3rem;
         text-transform: uppercase;
-        position: relative;
-        left:-1rem;
         
         font-weight: $font-weight-medium;
         cursor: pointer;
