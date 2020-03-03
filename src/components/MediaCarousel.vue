@@ -46,7 +46,6 @@ export default {
         handler: function() {
             this.getAjaxDelayed(
                 `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme`,
-                {'post_type': 'pomohlisme'},
                 (response) => {
                     const {data} = response;
                     this.items = data.items;

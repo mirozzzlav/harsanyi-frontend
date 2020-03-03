@@ -61,38 +61,6 @@ a {
     text-decoration: none;
     border:none;
 }
-
-.text-content {
-    padding-top: 4vw !important;
-    padding-bottom: 4vw !important;
-    font-size:1.1rem;
-    line-height: 2;
-    * {
-        font-family: "droid_serifregular", Georgia,Times, Times New Roman, serif; 
-        font-weight: $font-weight-medium;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        color:$dark-brown;
-        text-align: center;
-        line-height: 1.4;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: $font-weight-medium;
-    }
-    a {
-        color: $super-dark-brown;
-        font-weight: $font-weight-thick;
-        text-decoration: underline;
-    }
-    
-    img {
-        display: block;
-        margin: 2rem auto;
-        width: 100%;
-        min-width: 250px;
-    }
-}
-
 .spinner-container {
     width: 100%;
     height: 100%;

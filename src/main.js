@@ -7,7 +7,7 @@ import VueAxios from 'vue-axios'
 //Pages
 import Home from './pages/Home' 
 import ONadacii from './pages/ONadacii'
-import Stefan from './pages/Stefan'
+import StefanHarsanyi from './pages/StefanHarsanyi'
 import Podpora from './pages/Podpora'
 import PomohliSme from './pages/PomohliSme'
 import Kontakt from './pages/Kontakt'
@@ -32,7 +32,7 @@ const router = new VueRouter({
   routes: [
     { path: menuItems.home.path, component: Home, name: menuItems.home.name},
     { path: menuItems.about.path, component: ONadacii, name: menuItems.about.name},
-    { path: menuItems.stefan.path, component: Stefan, name: menuItems.stefan.name},
+    { path: menuItems.stefan.path, component: StefanHarsanyi, name: menuItems.stefan.name},
     { path: menuItems.weHelped.path, component: PomohliSme, name: menuItems.weHelped.name},
     { path: menuItems.contact.path, component: Kontakt, name: menuItems.contact.name},
     { path: menuItems.support.path + menuItems.support.queryString, component: Podpora},

@@ -7,11 +7,18 @@ export default {
       }
     },
     methods: {
-      getAjaxDelayed: function (apiUrl, getParams, _callback) {
+      getAjax: function (apiUrl, _callback) {
+        this.ajaxLoading = true;
+        this.$http.get(apiUrl).then((response)=> {
+          _callback(response);
+          this.ajaxLoading = false;
+        });
+      },
+      getAjaxDelayed: function (apiUrl, _callback) {
         this.ajaxLoading = true;
         setTimeout(
             () => {
-                this.$http.get(apiUrl, getParams).then((response)=> {
+                this.$http.get(apiUrl).then((response)=> {
                     _callback(response);
                     this.ajaxLoading = false;
                 });

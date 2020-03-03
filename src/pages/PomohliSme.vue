@@ -65,7 +65,6 @@ export default {
         let url = `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme/${pageNr}/${this.itemsPerPage}`;
         this.getAjaxDelayed(
             url,
-            {'post_type': 'pomohlisme'},
             (response) => {
                 const {data} = response;
                 this.items = data.items;
