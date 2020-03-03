@@ -19,7 +19,7 @@
         ]
         
     },
-    "ajaxDelayTime": 2000,
+    "ajaxDelayTime": 1000,
     "maxAttachmentSize": 10485760,
     "supportedAttachments": [
         "application/pdf",

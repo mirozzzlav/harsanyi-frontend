@@ -1,10 +1,14 @@
 <template>
+
     <div class="container-type3 text-content">
+        <div class="spinner-container" v-if="ajaxLoading">
+            <b-spinner label="Loading..."></b-spinner>
+        </div>
         <div class="content-error" v-if="contentError">
             <b-icon icon='alert-triangle'></b-icon>
             Vyskytla sa chyba pri načítavaní stránky.
         </div>
-        <div v-html="content"></div>
+        <div v-html="content" v-if="!ajaxLoading"></div>
     </div>
 </template>
 
@@ -17,10 +21,9 @@ export default {
     mixins: [Ajaxable],
     methods: {
         getContent: function() {
-            this.getAjax(
+            this.getAjaxDelayed(
                 `${process.env.VUE_APP_APIURL}wp/v2/pages?slug=${this.pageSlug}&status=publish`,
                 (response) => {
-                    console.log(this.pageSlug);
                     const {data} = response;
                     this.content = "";
                     this.contentError = false;
@@ -56,6 +59,7 @@ export default {
     padding-bottom: 4vw !important;
     font-size:1.1rem;
     line-height: 2;
+    position: relative;
     * {
         font-family: "droid_serifregular", Georgia,Times, Times New Roman, serif; 
         font-weight: $font-weight-medium;
