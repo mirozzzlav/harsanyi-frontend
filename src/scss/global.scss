@@ -85,28 +85,41 @@ a {
     text-transform: uppercase;
   }
   
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: $light-gray !important;
     font-weight: $font-weight-light;
     text-transform: uppercase;
-  }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color: $light-gray !important;
-    font-weight: $font-weight-light;
-    text-transform: uppercase;
-  }
+}
 
-  .container-type1.text-content{ 
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $light-gray !important;
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
+}
+
+.container-type1.text-content{ 
     img {
         width: 100%;
         max-width: 600px;
     }
+}
+.custom-row > *{
+    display: block;
+}
 
-  }
 
 @include media-breakpoint-up(lg) {
   .container-type3 {
       width:44vw;
   }
+}
+
+@include media-breakpoint-up(md) {
+    .custom-row {
+        display: flex;
+        flex-direction: row;
+    }
+    .custom-row > * {
+        width: 50%;
+    }
 }

@@ -1,8 +1,8 @@
 <template>
     <div class="numbers-outer">
         <div class="container-type1 numbers">
-            <div class="row">
-                <div class="col col-12 col-md-6">
+            <div class="custom-row">
+                <div class="numbere-element">
                     <div class="projects-count numbers-value">
                         1 678
                     </div>
@@ -10,7 +10,7 @@
                         PODPORENÝCH PROJEKTOV
                     </div>
                 </div>
-                <div class="col col-12 col-md-6">
+                <div class="numbere-element">
                     <div class="donation-value numbers-value">
                         2 236 768 €
                     </div>
@@ -37,7 +37,7 @@ export default {
 .numbers {    
     color:#f8f4e3;
 }
-.numbers .col {
+.numbers .numbere-element {
     text-align: center;
     padding: 1.5rem 0;
 }

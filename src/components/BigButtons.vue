@@ -1,15 +1,17 @@
 <template>
-    <div class="big-buttons" v-bind:class="{'some-link-active': someLinkActive}">
-
-        <div v-for="(link,indx) in links"  v-bind:key="indx" class="big-btn-outer">
-            <router-link class="big-btn" :to="link.link"
-            v-bind:class="{'active': links[indx].active}">
-            <b-icon icon="chevron-compact-right"></b-icon>
-            {{link.skname}}
-            <b-icon icon="chevron-compact-left"></b-icon>
-            </router-link>            
+    <div class="big-buttons-outer">
+        <div class="container-type1 big-buttons">
+            <div class="custom-row" v-bind:class="{'some-link-active': someLinkActive}">
+                <div v-for="(link,indx) in links"  v-bind:key="indx" class="big-btn-outer">
+                    <router-link class="big-btn" :to="link.link"
+                    v-bind:class="{'active': links[indx].active}">
+                    <b-icon icon="chevron-compact-right"></b-icon>
+                    {{link.skname}}
+                    <b-icon icon="chevron-compact-left"></b-icon>
+                    </router-link>            
+                </div> 
+            </div>
         </div>
-        
     </div>
         
 </template>
@@ -23,8 +25,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.big-buttons {
+.big-buttons-outer {
     background: $dark-brown;
+}
+.big-buttons {
     font-weight: $font-weight-medium;
     display: block;
 
@@ -38,7 +42,6 @@ export default {
     .big-btn {
         background: $dark-brown;
         display: block;
-        width: 100%;
         text-align: center;
         color: #fff;
         font-size: 1.5rem;
@@ -73,12 +76,15 @@ export default {
 } 
 
 @include media-breakpoint-up(md) {
-    .big-buttons {
+    .custom-row {
         display: flex;
         flex-direction: row;
-
+    }
+    .custom-row > * {
+        width: 50%;
+    }
+    .big-buttons {
         .big-btn-outer {
-            width: 50%;
             border: none;
         
             .big-btn {
