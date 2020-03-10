@@ -7,7 +7,7 @@
             <div class="custom-row">
                 <div class="number-element">
                     <div class="projects-count numbers-value">
-                        {{supportedProjects}}
+                        {{formatDecimal(supportedProjects)}}
                     </div>
                     <div class="numbers-label">
                         PODPORENÝCH PROJEKTOV
@@ -15,7 +15,7 @@
                 </div>
                 <div class="number-element">
                     <div class="donation-value numbers-value">
-                        {{supportedProjectsValue}}
+                        {{formatEuro(supportedProjectsValue)}}
                     </div>
                     <div class="numbers-label">
                         HODNOTA PODPORY
@@ -29,15 +29,17 @@
 
 <script>
 import Ajaxable from '../mixins/Ajaxable'
+import NumbersFormatter from '../mixins/NumbersFormatter';
+
 export default {
     name: "Numbers",
     data: function() {
         return {
-            supportedProjects: '-',
-            supportedProjectsValue:'-',
+            supportedProjects: null,
+            supportedProjectsValue:null,
         }
     },
-    mixins: [Ajaxable],
+    mixins: [Ajaxable, NumbersFormatter],
     watch: {
         $route: {
             immediate: true,
@@ -47,7 +49,7 @@ export default {
                     (response) => {
                         const {data} = response;
                         this.supportedProjects = data.supported_projects;
-                        this.supportedProjectsValue = data.supported_projects_value + ' €';
+                        this.supportedProjectsValue = data.supported_projects_value;
                     }
                 );
             }
