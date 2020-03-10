@@ -18,7 +18,12 @@ html {
     background-color: #fff;
     margin: 0 !important;
     padding: 0;
-    padding-bottom: 300px; 
+    padding-bottom: $footer-height-small-screen; 
+}
+@include media-breakpoint-up(sm) {
+    html {
+        padding-bottom: $footer-height-big-screen; 
+    }
 }
 * {
     box-sizing: border-box;
@@ -47,8 +52,8 @@ body {
     max-width: $max-width;
 }
 .vertical-space {
-    padding-top: 2vw !important;
-    padding-bottom: 2vw !important;
+    padding-top: 2.5vh !important;
+    padding-bottom: 2.5vh !important;
 }
 .main-hl {
     color: $medium-brown;
@@ -97,12 +102,6 @@ a {
     text-transform: uppercase;
 }
 
-.container-type1.text-content{ 
-    img {
-        width: 100%;
-        max-width: 600px;
-    }
-}
 .custom-row > *{
     display: block;
 }

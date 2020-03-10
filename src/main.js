@@ -11,6 +11,7 @@ import StefanHarsanyi from './pages/StefanHarsanyi'
 import Podpora from './pages/Podpora'
 import PomohliSme from './pages/PomohliSme'
 import Kontakt from './pages/Kontakt'
+import OchranaOsobnychUdajov from './pages/OchranaOsobnychUdajov'
 
 import configHelper from './modules/configHelper';
 
@@ -36,6 +37,7 @@ const router = new VueRouter({
     { path: menuItems.weHelped.path, component: PomohliSme, name: menuItems.weHelped.name},
     { path: menuItems.contact.path, component: Kontakt, name: menuItems.contact.name},
     { path: menuItems.support.path + menuItems.support.queryString, component: Podpora},
+    { path: menuItems.protection.path, component: OchranaOsobnychUdajov, name: menuItems.protection.name},
   ],
   scrollBehavior () {
     return { x: 0, y: 0 }
@@ -47,6 +49,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router: router,
-  template: '<App/>',
+  template: '<App header-fixed="true" />',
   components: { App },
 });

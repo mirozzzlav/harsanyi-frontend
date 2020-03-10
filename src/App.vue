@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <header>
+  
+  <div :style="{paddingTop: mainPaddingTop}">
+    <header ref="header" :class="{'fixed' : headerFixed, 'tiny-downwards-shadow': showHeaderShadow}" id="main-header">
       <b-navbar toggleable="lg" id="main-navbar" class="container-type1 vertical-space">
         <b-navbar-brand :to="{name: menuItems.home.name}"></b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -16,9 +17,9 @@
                 v-bind:class="{customactive: isCustomActive(menuItems.support.path)}">
                 {{menuItems.support.skname}}
               </b-nav-item>
-              <b-nav-item :to="{name: menuItems.weHelped.name}" class="mr-3" right>
+              <!--<b-nav-item :to="{name: menuItems.weHelped.name}" class="mr-3" right>
                 {{menuItems.weHelped.skname}}
-              </b-nav-item>
+              </b-nav-item>-->
               <b-nav-item :to="{name: menuItems.contact.name}" class="mr-3" right>
                 {{menuItems.contact.skname}}
               </b-nav-item>
@@ -30,16 +31,18 @@
       <router-view></router-view>
     </main>
     <footer id="main-footer">
-      <section id="main-footer-content">
-        Harsanyi Foundation<br />
-        Okružná 5, 917 01 Trnava<br />
-        Slovenská republika<br /><br />
-
-        info@harfou.sk<br />
-        www.harfou.sk<br /><br />
-
-        IČO: 52212777<br />
-        Reg. č.: 203/Na-2002/1204
+      <section id="main-footer-content-wrapper">
+        <div id="main-footer-content" class="container-type1">
+          <router-link :to="{name: menuItems.protection.name}">
+            {{menuItems.protection.skname}}
+          </router-link>
+          <span>&nbsp;|&nbsp;</span>
+          <router-link :to="{name: menuItems.contact.name}">
+            {{menuItems.contact.skname}}
+          </router-link>
+          <br/>
+          Všetky práva vyhradené, legálna vetička, prosím dotať.
+        </div>
       </section>
     </footer>
   </div>
@@ -55,14 +58,34 @@ Vue.use(BootstrapVueIcons)
 export default {
   name: 'App',
   mixins: [SupportLinkHelper],
+  props: ['headerFixed'],
   data: function() {
     return {
-      
+      'headerHeight': null,
+      'windowScrollY': 0
     }
   },
   computed: {
     menuItems: function() {
       return this.configHelper.get('menuItems');
+    },
+    mainPaddingTop: {
+      get: function () {
+        return this.headerHeight === 'auto' ? '0px' : this.headerHeight + 'px';
+      },
+      set: function (val) {
+        if (!this.headerFixed) {
+          this.headerHeight = 'auto';
+          return;
+        }
+        this.headerHeight = val;
+      }
+    },
+    showHeaderShadow: function() {
+      if (this.headerFixed && this.windowScrollY > 10) {
+        return true;
+      }
+      return false;
     }
   },
   watch: {
@@ -74,6 +97,20 @@ export default {
     isCustomActive: function(linkPath) {
       return this.$route.path.indexOf(linkPath) !== -1;
     }
+  },
+  mounted: function() {
+    this.$nextTick(function() {
+      this.$set
+      this.mainPaddingTop = this.$refs['header'].offsetHeight;
+      
+      window.addEventListener("resize", () => {
+        this.mainPaddingTop = this.$refs['header'].offsetHeight;
+      });
+      this.windowScrollY = window.scrollY
+      window.addEventListener('scroll', () => {
+        this.windowScrollY = window.scrollY
+      });
+    });
   }
 }
 </script>

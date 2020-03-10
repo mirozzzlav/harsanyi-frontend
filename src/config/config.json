@@ -10,7 +10,8 @@
             "queryString": "/akcia/:action"
         },
         "weHelped": {"path": "/pomohli-sme", "name": "weHelped", "skname": "Pomohli sme"},
-        "contact": {"path": "/kontakt", "name": "contact", "skname": "Kontakt"}
+        "contact": {"path": "/kontakt", "name": "contact", "skname": "Kontakt"},
+        "protection": {"path": "/ochrana-osobnych-udajov", "name": "protection", "skname": "Ochrana osobných údajov"}
     },
     "menuItemsArgs": {
         "support": [

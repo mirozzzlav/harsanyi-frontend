@@ -1,7 +1,7 @@
 <template>
     <div class="big-buttons-outer">
-        <div class="container-type1 big-buttons">
-            <div class="custom-row" v-bind:class="{'some-link-active': someLinkActive}">
+        <div class="container-type1 big-buttons" v-bind:class="{'some-link-active': someLinkActive}">
+            <div class="custom-row">
                 <div v-for="(link,indx) in links"  v-bind:key="indx" class="big-btn-outer">
                     <router-link class="big-btn" :to="link.link"
                     v-bind:class="{'active': links[indx].active}">

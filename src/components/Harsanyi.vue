@@ -6,7 +6,7 @@
           <h1 class="main-hl" v-html="content.mainBlock.content.title"></h1>
           <p>{{content.mainBlock.content.desc}}</p>
           <div class="stefan-label-small-screen">
-            Stefan<br/>Harsányi<br/>
+            Štefan<br/>Harsányi<br/>
             <router-link :to="{name: this.configHelper.get('menuItems').stefan.name}" class="mr-3" right>
               viac
             </router-link>
@@ -17,7 +17,7 @@
       <div class="img-big-right-block" v-if="content.imgBigRightBlock.visible">
         <img src="../assets/harsanyi.png" alt="Harsanyi" />
         <div class="stefan-label">
-          Stefan<br/>Harsányi<br/>
+          Štefan<br/>Harsányi<br/>
           <router-link :to="{name: this.configHelper.get('menuItems').stefan.name}" class="mr-3" right>
             viac
           </router-link>

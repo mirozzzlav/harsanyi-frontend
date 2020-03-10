@@ -3,7 +3,7 @@
     <harsanyi id="homeHarsanyi1" />
     <bigButtons :links="true" />
     <numbers />
-    <mediaCarousel />
+    <!-- <mediaCarousel /> -->
     
   </div>  
 </template>
@@ -12,7 +12,7 @@
 import Harsanyi from '../components/Harsanyi';
 import BigButtons from '../components/BigButtons';
 import Numbers from '../components/Numbers';
-import MediaCarousel from '../components/MediaCarousel'
+//import MediaCarousel from '../components/MediaCarousel'
 
 export default {
   name: 'Home',
@@ -20,7 +20,7 @@ export default {
     Harsanyi,
     BigButtons,
     Numbers,
-    MediaCarousel
+    //MediaCarousel
   },
   data: function() {
     return {

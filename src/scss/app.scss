@@ -1,5 +1,22 @@
 #app {
     flex: 1;
+    
+}
+#main-header {
+    background-color: #fff;
+}
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top:0;
+    left:0;
+    
+}
+.tiny-downwards-shadow {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
 }
 
 #main-navbar.navbar {
@@ -34,14 +51,30 @@
     background-color: $gray;
     text-align: center;
     color: #C2C2C2;
-    height: 300px;
     font-size: 0.8rem;
     font-weight: $font-weight-medium;
     background-image: url(assets/chain_pattern.png);
     background-position-y: bottom;
     background-repeat: repeat-x;
+    height: $footer-height-small-screen;
+}
+#main-footer-content-wrapper {
+    display: flex;
+    align-items: center;
+    height: $footer-height-small-screen - 64px;
 }
 #main-footer-content {
-    margin: 2.7rem auto 0 auto;
     padding: 0;
+    a {
+        color: #C2C2C2;
+        font-weight: $font-weight-thick;
+    }
+}
+@include media-breakpoint-up(sm) {
+    #main-footer {
+        height: $footer-height-big-screen;
+    }        
+    #main-footer-content-wrapper {
+        height: $footer-height-big-screen - 64px;
+    }
 }

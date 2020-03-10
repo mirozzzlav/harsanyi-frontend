@@ -1,18 +1,21 @@
 <template>
     <div class="numbers-outer">
+        <div class="spinner-container" v-if="ajaxLoading">
+                <b-spinner label="Loading..."></b-spinner>
+            </div>
         <div class="container-type1 numbers">
             <div class="custom-row">
-                <div class="numbere-element">
+                <div class="number-element">
                     <div class="projects-count numbers-value">
-                        1 678
+                        {{supportedProjects}}
                     </div>
                     <div class="numbers-label">
                         PODPORENÝCH PROJEKTOV
                     </div>
                 </div>
-                <div class="numbere-element">
+                <div class="number-element">
                     <div class="donation-value numbers-value">
-                        2 236 768 €
+                        {{supportedProjectsValue}}
                     </div>
                     <div class="numbers-label">
                         HODNOTA PODPORY
@@ -25,21 +28,46 @@
 </template>
 
 <script>
+import Ajaxable from '../mixins/Ajaxable'
 export default {
-    name: "Numbers"
+    name: "Numbers",
+    data: function() {
+        return {
+            supportedProjects: '-',
+            supportedProjectsValue:'-',
+        }
+    },
+    mixins: [Ajaxable],
+    watch: {
+        $route: {
+            immediate: true,
+            handler: function() {
+                this.getAjaxDelayed(
+                    `${process.env.VUE_APP_APIURL}custom-api/v2/get-support-values`,
+                    (response) => {
+                        const {data} = response;
+                        this.supportedProjects = data.supported_projects;
+                        this.supportedProjectsValue = data.supported_projects_value + ' €';
+                    }
+                );
+            }
+        },
+    }
 }
 </script>
 
 <style scoped lang="scss">
 .numbers-outer {
+    position: relative;
     background-color: $gray;
+    border-bottom: 3px solid $dark-gray;
 }
 .numbers {    
     color:#f8f4e3;
 }
-.numbers .numbere-element {
+.numbers .number-element {
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 4rem 0;
 }
 .numbers .numbers-value {
     font-size: 2.8em;
@@ -57,6 +85,9 @@ export default {
     .numbers .col {
         padding: 3.5rem 0;
     }
+}
+.spinner-container {
+    color:$dark-gray;
 }
 
 </style>
