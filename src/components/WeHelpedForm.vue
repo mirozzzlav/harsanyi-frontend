@@ -180,7 +180,7 @@ export default {
                     attachments.forEach((_file) => {
                         filesize += _file.size;
                     });
-                    if (filesize > this.configHelper.get('maxAttachmentSize')) {
+                    if (filesize > this.maxAttachmentSize) {
                         return false;
                     }
                     return true;
@@ -192,7 +192,7 @@ export default {
                     let ret = true;
                     attachments.forEach((_file) => {
                         let fileType = _file.type.toLowerCase();
-                        if (!this.configHelper.get('supportedAttachments').includes(fileType)) {
+                        if (!this.supportedAttachments.includes(fileType)) {
                             ret = false;
                             return;
                         }

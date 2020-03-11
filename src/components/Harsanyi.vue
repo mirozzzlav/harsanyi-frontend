@@ -7,7 +7,7 @@
           <p>{{content.mainBlock.content.desc}}</p>
           <div class="stefan-label-small-screen">
             Štefan<br/>Harsányi<br/>
-            <router-link :to="{name: this.configHelper.get('menuItems').stefan.name}" class="mr-3" right>
+            <router-link :to="{name: menuItems.stefan.name}" class="mr-3" right>
               viac
             </router-link>
           </div>
@@ -18,7 +18,7 @@
         <img src="../assets/harsanyi.png" alt="Harsanyi" />
         <div class="stefan-label">
           Štefan<br/>Harsányi<br/>
-          <router-link :to="{name: this.configHelper.get('menuItems').stefan.name}" class="mr-3" right>
+          <router-link :to="{name: menuItems.stefan.name}" class="mr-3" right>
             viac
           </router-link>
         </div>
@@ -38,10 +38,11 @@
 
 <script>
 import ContentBase from '../components/ContentBase';
+import ConfigHelper from '../mixins/ConfigHelper';
 
 export default {
   name: 'Harsanyi',
-  mixins: [ContentBase],
+  mixins: [ContentBase, ConfigHelper],
   data: function() {
     return {
     };

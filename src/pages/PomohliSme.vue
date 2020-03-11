@@ -6,7 +6,7 @@
             </div>
             <div v-if="!ajaxLoading">
               <div class="row" v-for="(row, indx) in rows" v-bind:key="indx">
-                  <div class="item-wrapper col-12" v-bind:class="'col-md-' + (12 / colsPerRow)"
+                  <div class="item-wrapper col-12" v-bind:class="'col-md-' + (12 / defaultGalleryCols)"
                       v-for="item in row" v-bind:key="item.id"
                   >
                       <img v-bind:src="item.imgs[0].src" v-bind:alt="item.post_tile"/>
@@ -16,7 +16,7 @@
               </div>
 
               <b-pagination v-model="currentPage" :total-rows="itemsCount"
-                    :per-page="itemsPerPage" first-number align="center" v-if="itemsCount > itemsPerPage">
+                    :per-page="itemsPerPageGallery" first-number align="center" v-if="itemsCount > itemsPerPageGallery">
               </b-pagination>
             </div>
         </div>
@@ -26,8 +26,10 @@
 
 <script>
 import Ajaxable from '../mixins/Ajaxable'
+import ConfigHelper from '../mixins/ConfigHelper'
+
 export default {
-    mixins: [Ajaxable],
+    mixins: [Ajaxable, ConfigHelper],
     name: "Gallery",
     data: function() {
         return {
@@ -42,7 +44,7 @@ export default {
             var rows = [[]];
 
             this.items.forEach((item, indx) => {
-                if (indx % this.colsPerRow === 0) {
+                if (indx % this.defaultGalleryCols === 0) {
                   rowNr++;
                   rows[rowNr] = [];
                 }
@@ -50,19 +52,12 @@ export default {
                 rows[rowNr].push(item);
             });
             return rows;
-        },
-        colsPerRow: function() {
-          return this.configHelper.get('defaultGalleryCols');
-        },
-        itemsPerPage: function() {
-          return this.configHelper.get('itemsPerPageGallery');
         }
-
     },
     methods: {
       getGallery: function(pageNr) {
 
-        let url = `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme/${pageNr}/${this.itemsPerPage}`;
+        let url = `${process.env.VUE_APP_APIURL}custom-api/v2/get-posts/pomohlisme/${pageNr}/${this.itemsPerPageGallery}`;
         this.getAjaxDelayed(
             url,
             (response) => {

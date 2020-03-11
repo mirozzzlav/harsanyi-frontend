@@ -12,19 +12,15 @@ import Podpora from './pages/Podpora'
 import PomohliSme from './pages/PomohliSme'
 import Kontakt from './pages/Kontakt'
 import OchranaOsobnychUdajov from './pages/OchranaOsobnychUdajov'
-
-import configHelper from './modules/configHelper';
-
+import configHelper from './mixins/ConfigHelper';
 import './scss/global.scss';
 
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
-Vue.prototype.configHelper = configHelper;
 Vue.config.productionTip = false
 
-const menuItems = configHelper.get('menuItems');
-
+const menuItems = configHelper.data().menuItems;
 
 
 const router = new VueRouter({

@@ -1,6 +1,7 @@
-//const AJAX_DELAY_TIME = 2000; //mili sec
+import ConfigHelper from './ConfigHelper';
 
 export default {
+    mixins: [ConfigHelper],
     data: function() {
       return {
         ajaxLoading: false
@@ -23,7 +24,7 @@ export default {
                     this.ajaxLoading = false;
                 });
             },                
-            this.configHelper.get('ajaxDelayTime')
+            this.ajaxDelayTime
         );
       },
 
@@ -50,7 +51,7 @@ export default {
                   }
                 });
             },                
-            this.configHelper.get('ajaxDelayTime')
+            this.ajaxDelayTime
         );
       },
       getFormData(obj) {

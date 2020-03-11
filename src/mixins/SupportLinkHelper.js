@@ -1,5 +1,7 @@
-import configHelper from '../modules/configHelper';
+import ConfigHelper from '../mixins/ConfigHelper';
+
 export default {
+    mixins: [ConfigHelper],
     data: function() {
       return {
         links: [
@@ -12,15 +14,15 @@ export default {
         initLinks: function() {
             var indx = 0;
             var _this = this;
-            let configSupportLinkArgs = this.configHelper.get('menuItemsArgs')['support'];
+            let configSupportLinkArgs = this.menuItemsArgs.support;
 
             configSupportLinkArgs.forEach(
                 () => {
                     let link = {
-                        link: this.getSupportLink(indx),
-                        slug: this.getSupportLinkSlug(indx),
+                        link: _this.getSupportLink(indx),
+                        slug: _this.getSupportLinkSlug(indx),
                         active: false,
-                        skname: this.getSupportLinkSkName(indx)
+                        skname: _this.getSupportLinkSkName(indx)
                     }
     
                     _this.links[indx] = link;
@@ -29,8 +31,7 @@ export default {
             )
         },
         getSupportLink(argIndex) {
-        
-            let menuItem = configHelper.get('menuItems')['support'];
+            let menuItem = this.menuItems.support;
             if (menuItem === undefined) {
                 return '';
             }
@@ -41,7 +42,7 @@ export default {
             let tmpQureyString = menuItem.queryString.match(/([^:]*):[^/\s]+$/);
                
             if (tmpQureyString[1] !== undefined) {
-                let tmpArgs = configHelper.get('menuItemsArgs')['support'];
+                let tmpArgs = this.menuItemsArgs.support;
                 let argValue = '';
                 if (tmpArgs !== undefined && tmpArgs[argIndex] !== undefined) {
                     argValue = tmpArgs[argIndex].slug
@@ -53,7 +54,7 @@ export default {
             return menuItem.path || '';
         },
         getSupportLinkParam(argIndex, paramName) {
-            let tmpArgs = configHelper.get('menuItemsArgs')['support'];
+            let tmpArgs = this.menuItemsArgs.support;
             
             if (tmpArgs !== undefined && tmpArgs[argIndex] !== undefined) {   
                 return tmpArgs[argIndex][paramName];

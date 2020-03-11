@@ -51,13 +51,14 @@
 import Vue from 'vue'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import SupportLinkHelper from './mixins/SupportLinkHelper'
+import ConfigHelper from './mixins/ConfigHelper'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 
 export default {
   name: 'App',
-  mixins: [SupportLinkHelper],
+  mixins: [SupportLinkHelper, ConfigHelper],
   props: ['headerFixed'],
   data: function() {
     return {
@@ -66,9 +67,6 @@ export default {
     }
   },
   computed: {
-    menuItems: function() {
-      return this.configHelper.get('menuItems');
-    },
     mainPaddingTop: {
       get: function () {
         return this.headerHeight === 'auto' ? '0px' : this.headerHeight + 'px';
@@ -100,7 +98,6 @@ export default {
   },
   mounted: function() {
     this.$nextTick(function() {
-      this.$set
       this.mainPaddingTop = this.$refs['header'].offsetHeight;
       
       window.addEventListener("resize", () => {
