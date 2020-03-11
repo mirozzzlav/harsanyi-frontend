@@ -1,6 +1,6 @@
 <template>
     <div class="big-buttons-outer">
-        <div class="container-type1 big-buttons" v-bind:class="{'some-link-active': someLinkActive}">
+        <div class="container-type4 big-buttons" v-bind:class="{'some-link-active': someLinkActive}">
             <div class="custom-row">
                 <div v-for="(link,indx) in links"  v-bind:key="indx" class="big-btn-outer">
                     <router-link class="big-btn" :to="link.link"
@@ -39,6 +39,9 @@ export default {
         padding: 1rem 0;
         border-bottom: 1px solid #d8d8d8;
     }
+    /*> .custom-row > :last-child > .big-btn {
+        text-align: right;
+    }*/
     .big-btn {
         background: $dark-brown;
         display: block;
@@ -76,13 +79,6 @@ export default {
 } 
 
 @include media-breakpoint-up(md) {
-    .custom-row {
-        display: flex;
-        flex-direction: row;
-    }
-    .custom-row > * {
-        width: 50%;
-    }
     .big-buttons {
         .big-btn-outer {
             border: none;

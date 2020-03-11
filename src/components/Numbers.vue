@@ -3,7 +3,7 @@
         <div class="spinner-container" v-if="ajaxLoading">
                 <b-spinner label="Loading..."></b-spinner>
             </div>
-        <div class="container-type1 numbers">
+        <div class="container-type4 numbers">
             <div class="custom-row">
                 <div class="number-element">
                     <div class="projects-count numbers-value">

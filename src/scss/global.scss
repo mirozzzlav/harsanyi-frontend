@@ -40,17 +40,27 @@ body {
     max-width: $max-width;
 }
 .container-type2 {
+    /*mediaCarousel*/
     width: 96vw;
     margin-left: auto;
     margin-right: auto;
     max-width: $max-width;
 }
 .container-type3 {
+    /*texts*/
     width:92vw;
     margin-left: auto;
     margin-right: auto;
     max-width: $max-width;
 }
+.container-type4 {
+    /*numbers, bigbuttons, areasOfSupport */
+    width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+}
+
 .vertical-space {
     padding-top: 2.5vh !important;
     padding-bottom: 2.5vh !important;
@@ -111,6 +121,10 @@ a {
   .container-type3 {
       width:44vw;
   }
+  
+  .container-type4 {
+    width: 75vw;
+  }
 }
 
 @include media-breakpoint-up(md) {
@@ -120,5 +134,10 @@ a {
     }
     .custom-row > * {
         width: 50%;
+    }
+}
+@media (min-width: 2000px) {
+    .container-type3 {
+        width:33vw;
     }
 }

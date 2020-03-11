@@ -3,6 +3,7 @@
     <harsanyi id="homeHarsanyi1" />
     <bigButtons :links="true" />
     <numbers />
+    <areasOfSupport id="areasOfSupport1" />
     <!-- <mediaCarousel /> -->
     
   </div>  
@@ -11,6 +12,7 @@
 <script>
 import Harsanyi from '../components/Harsanyi';
 import BigButtons from '../components/BigButtons';
+import AreasOfSupport from '../components/AreasOfSupport';
 import Numbers from '../components/Numbers';
 //import MediaCarousel from '../components/MediaCarousel'
 
@@ -19,6 +21,7 @@ export default {
   components: {
     Harsanyi,
     BigButtons,
+    AreasOfSupport,
     Numbers,
     //MediaCarousel
   },
