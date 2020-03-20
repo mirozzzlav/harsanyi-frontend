@@ -1,52 +1,32 @@
 <template>
-
     <div class="container-type3 text-content">
-        <div class="spinner-container" v-show="ajaxLoading">
-            <b-spinner label="Loading..."></b-spinner>
-        </div>
         <div class="content-error" v-if="contentError">
             <b-icon icon='alert-triangle'></b-icon>
             Vyskytla sa chyba pri načítavaní stránky.
         </div>
-        <div v-html="content" v-if="!ajaxLoading"></div>
+        <div v-html="content"></div>
     </div>
 </template>
 
 <script>
-import Ajaxable from '../mixins/Ajaxable';
-
 export default {
-    name: "SupportUs",
-    props: ['pageSlug'],
-    mixins: [Ajaxable],
-    methods: {
-        getContent: function() {
-            this.getAjaxDelayed(
-                `${process.env.VUE_APP_APIURL}wp/v2/pages?slug=${this.pageSlug}&status=publish`,
-                (response) => {
-                    const {data} = response;
-                    this.content = "";
-                    this.contentError = false;
-                    if (data === undefined || data[0] === undefined) {
-                        this.contentError = true;
-                        return;
-                    }
-                    this.content = data[0].content.rendered;
-                }
-            );
-
+    name: "TextContent",
+    props: {
+        data: {
+            type: Object,
+        },
+        contentError: {
+            type: Boolean,
+            default: false
         }
     },
-    data: function() {
-        return {
-            content: '',
-            contentError: false
-        }
-    },
-    watch: {
-        $route: {
-            immediate: true, 
-            handler: function() { this.getContent() }
+    computed: {
+        content: function() {
+            if (this.data.content !== undefined) {
+                return this.data.content.rendered
+            }
+            
+            return "";
         }
     }
 }

@@ -1,8 +1,5 @@
 <template>
     <div class="numbers-outer">
-        <div class="spinner-container" v-if="ajaxLoading">
-                <b-spinner label="Loading..."></b-spinner>
-            </div>
         <div class="container-type4 numbers">
             <div class="custom-row">
                 <div class="number-element">
@@ -28,33 +25,29 @@
 </template>
 
 <script>
-import Ajaxable from '../mixins/Ajaxable'
+
 import NumbersFormatter from '../mixins/NumbersFormatter';
+import ContentBase from '../mixins/ContentBase';
 
 export default {
     name: "Numbers",
-    data: function() {
-        return {
-            supportedProjects: null,
-            supportedProjectsValue:null,
+    props: {
+        data: {
+            type: Object,
+            default: null
         }
     },
-    mixins: [Ajaxable, NumbersFormatter],
-    watch: {
-        $route: {
-            immediate: true,
-            handler: function() {
-                this.getAjaxDelayed(
-                    `${process.env.VUE_APP_APIURL}custom-api/v2/get-support-values`,
-                    (response) => {
-                        const {data} = response;
-                        this.supportedProjects = data.supported_projects;
-                        this.supportedProjectsValue = data.supported_projects_value;
-                    }
-                );
-            }
+    computed: {
+        supportedProjects: function() {
+            return this.data && this.data.root.content.supportedProjects 
+                ? this.data.root.content.supportedProjects : null;
         },
-    }
+        supportedProjectsValue: function() {
+            return this.data && this.data.root.content.supportedProjectsValue 
+                ? this.data.root.content.supportedProjectsValue : null;
+        }
+    },
+    mixins: [ContentBase, NumbersFormatter]
 }
 </script>
 
@@ -88,8 +81,6 @@ export default {
         padding: 3.5rem 0;
     }
 }
-.spinner-container {
-    color:$dark-gray;
-}
+
 
 </style>

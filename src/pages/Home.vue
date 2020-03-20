@@ -1,9 +1,24 @@
 <template>
   <div id="home">
-    <harsanyi id="homeHarsanyi1" />
+    <loadable :data-loaded="!ajaxLoading">
+      <template>
+        <harsanyi :content="content.homeHarsanyi1" />
+      </template>
+    </loadable>
+
     <bigButtons :links="true" />
-    <numbers />
-    <areasOfSupport id="areasOfSupport1" />
+    <loadable :data-loaded="!ajaxLoading">
+      <template>
+        <areasOfSupport :content="content.areasOfSupport1" />
+      </template>
+    </loadable>
+    
+    <loadable :data-loaded="!ajaxLoading" :spinner-css-class="'white'">
+          <template>
+            <numbers :data="content.homeNumbers1"/>
+          </template>
+    </loadable>
+    
     <!-- <mediaCarousel /> -->
     
   </div>  
@@ -15,36 +30,19 @@ import BigButtons from '../components/BigButtons';
 import AreasOfSupport from '../components/AreasOfSupport';
 import Numbers from '../components/Numbers';
 //import MediaCarousel from '../components/MediaCarousel'
+import ContentManager from '../mixins/ContentManager'
+import Loadable from '../components/Loadable';
 
 export default {
   name: 'Home',
+  mixins: [ContentManager],
   components: {
     Harsanyi,
     BigButtons,
     AreasOfSupport,
     Numbers,
+    Loadable
     //MediaCarousel
-  },
-  data: function() {
-    return {
-    };
-  },
-  props: {
-    
-  },
-  watch: {
-    $route: {
-        immediate: true, 
-        handler: function() {
-          // on route change
-        }, 
-    },
-  },
-  created: function() {
-    
-  },
-  methods: {
-
   }
 }
 </script>

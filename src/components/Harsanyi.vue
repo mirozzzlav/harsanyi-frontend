@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ContentBase from '../components/ContentBase';
+import ContentBase from '../mixins/ContentBase';
 import ConfigHelper from '../mixins/ConfigHelper';
 
 export default {

@@ -1,0 +1,77 @@
+{
+  "homeHarsanyi1": {
+      "root": {
+          "class": "container-type1",
+          "style": {
+              "height": "auto"
+          }
+      },
+      "imgBigRightBlock": {
+          "visible":true
+      },
+      "mainBlock": {
+          "visible": true,
+          "content": {
+              "title": "",
+              "desc": ""
+          }
+      },
+      "imgCenteredBlock" : {
+          "visible": false
+      },
+      "stefanHeadline": {
+          "visible": false
+      }
+  },
+  "homeNumbers1": {
+    "root": {
+        "content": {
+            "supportedProjects": 0,
+            "supportedProjectsValue" : 0 
+        }
+    }
+  },
+  "stefanHarsanyi1": {
+      "root": {
+          "class": "container-type3",
+          "style": {
+              "height": "55vh"
+          }
+      },
+      "imgBigRightBlock": {
+          "visible":false
+      },
+      "mainBlock": {
+          "visible": false
+      }, 
+      "imgCenteredBlock": {
+          "visible": true
+      },
+      "stefanHeadline": {
+          "visible": true,
+          "content": {
+              "text": "Štefan Harsányi"
+          }
+      }
+  },
+  "areasOfSupport1": {
+      "root": {
+          "content": {
+              "areasOfSupport": [
+                  [
+                    {
+                        "hl": "Nadpis",
+                        "desc": "Text"
+                    },
+                    {
+                        "hl": "Napdpis",
+                        "desc": "Text"
+                    }
+                ]
+              ]
+          }
+      }
+  }
+  
+
+}

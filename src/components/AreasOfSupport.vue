@@ -2,7 +2,7 @@
     <div class="areas-outer">
         <div class="container-type4">
             <h2 class="areas-hl">Oblasti podpory</h2>
-            <div class="custom-row" v-for="(areaRow,indx) in content.root.content.arreasOfSupport" v-bind:key="indx">
+            <div class="custom-row" v-for="(areaRow,indx) in content.root.content.areasOfSupport" v-bind:key="indx">
                 <div v-for="(area,j) in areaRow" v-bind:key="j">
                     <div class="icon-wrapper"></div>
                     <div class="content-wrapper">
@@ -19,7 +19,7 @@
 <script>
 
 
-import ContentBase from '../components/ContentBase';
+import ContentBase from '../mixins/ContentBase';
 export default {
     mixins: [ContentBase],
     name: "AreasOfSupport",

@@ -2,20 +2,28 @@ import ConfigHelper from './ConfigHelper';
 
 export default {
     mixins: [ConfigHelper],
+    template: "<div></div>",
     data: function() {
       return {
-        ajaxLoading: false
+        ajaxLoading: false,
+      }
+    },
+    computed: {
+      apiBaseUrl: function() {
+        return process.env.VUE_APP_APIURL;
       }
     },
     methods: {
-      getAjax: function (apiUrl, _callback) {
+      getAjax: function (apiPath, _callback) {
+        let apiUrl = this.apiBaseUrl + apiPath;
         this.ajaxLoading = true;
         this.$http.get(apiUrl).then((response)=> {
           _callback(response);
           this.ajaxLoading = false;
         });
       },
-      getAjaxDelayed: function (apiUrl, _callback) {
+      getAjaxDelayed: function (apiPath, _callback) {
+        let apiUrl = this.apiBaseUrl + apiPath;
         this.ajaxLoading = true;
         setTimeout(
             () => {
@@ -28,9 +36,10 @@ export default {
         );
       },
 
-      postAjaxDelayed: function (apiUrl, postData, _callback, _err_callback = null) {
+      postAjaxDelayed: function (apiPath, postData, _callback, _err_callback = null) {
         let formData = this.getFormData(postData);
         this.ajaxLoading = true;
+        let apiUrl = this.apiBaseUrl + apiPath;
 
         setTimeout(
             () => {

@@ -27,9 +27,9 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.VUE_APP_BASE_ROUTE || "/",
   routes: [
-    { path: menuItems.home.path, component: Home, name: menuItems.home.name},
+    { path: menuItems.home.path, component: Home, props: { staticpg: false }, name: menuItems.home.name},
     { path: menuItems.about.path, component: ONadacii, name: menuItems.about.name},
-    { path: menuItems.stefan.path, component: StefanHarsanyi, name: menuItems.stefan.name},
+    { path: menuItems.stefan.path, component: StefanHarsanyi, props: { staticpg: true }, name: menuItems.stefan.name},
     { path: menuItems.weHelped.path, component: PomohliSme, name: menuItems.weHelped.name},
     { path: menuItems.contact.path, component: Kontakt, name: menuItems.contact.name},
     { path: menuItems.support.path + menuItems.support.queryString, component: Podpora},
